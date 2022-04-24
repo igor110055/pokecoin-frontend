@@ -1,20 +1,12 @@
-import PokemonCard from "../../components/PokemonCard";
-import { Container } from '../../styles/global';
-import { ButtonRow, ButtonNav } from './styles';
-function Home() {
-    return (
-        <Container>
-            <ButtonRow>
-                <ButtonNav>Next Page</ButtonNav>
-                <ButtonNav>Prev Page</ButtonNav>
-            </ButtonRow>
-            <PokemonCard pokemonType='normal'>
-                nome
-                preco
-                comprar
-            </PokemonCard>
-        </Container>
-    )
-};
+import Home from "./Home";
+import { PokeCoinApiProvider } from '../../contexts/PokecoinApi/index';
 
-export default Home;
+function HomePage() {
+    return(
+        <PokeCoinApiProvider>
+            <Home/>
+        </PokeCoinApiProvider>
+    )
+}
+
+export default HomePage
