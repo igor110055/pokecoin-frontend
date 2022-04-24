@@ -37,12 +37,10 @@ function Wallet({ btcCurrency }) {
                                 <SellRow>
                                     <p>Compra: $ {pokemon.pokemonUsdValue.toFixed(6)}</p>
                                     <p>Venda: $ {calculatePokemonUsdValue({ btcCurrency, pokemonExperience: pokemon.pokemonId.pokemonExperience }).toFixed(6)}
-                                    <Icon icon={
-                                        `akar-icons:arrow-${
-                                            getValorization(pokemon.pokemonUsdValue,
-                                            calculatePokemonUsdValue({ btcCurrency, pokemonExperience: pokemon.pokemonId.pokemonExperience }))
-                                            ? 'up' : 'down'}`
-                                        }/>
+                                        <Icon icon={
+                                            `akar-icons:arrow-${getValorization(pokemon.pokemonUsdValue, calculatePokemonUsdValue({ btcCurrency, pokemonExperience: pokemon.pokemonId.pokemonExperience }))
+                                                ? 'up' : 'down'}`
+                                        } />
                                     </p>
                                     <SellButton onClick={() => handleSellPokemons(pokemon.pokemonId._id)}>Vender</SellButton>
                                 </SellRow>
