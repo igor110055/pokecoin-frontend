@@ -9,4 +9,9 @@ export const Card = styled.div`
     height: 80px;
     margin: 20px 0;
     background: ${ props  => `var(--type-${props.pokemonType})`};
+    color: white;
+
+    p {
+        text-transform: capitalize;
+    }
 `
