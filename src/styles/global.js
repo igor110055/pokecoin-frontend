@@ -56,3 +56,18 @@ export const Row = styled.div`
     height: 100%;
     color: white;
 `
+export const LinkDiv = styled.div`
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    margin: 10px 0;
+    border-bottom : ${props => props.pageActive ? '1px solid #FFCC00' : 'none' };
+
+    a {
+        color: white;
+    }
+
+
+`
