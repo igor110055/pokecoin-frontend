@@ -29,7 +29,7 @@ export function PokedexApiProvider({ children }) {
     const handleGetPokemonByName = async () => {
         try {
             const response = await getPokemonsByName({ pokemonName });
-            setPokemonsList(response);
+            setPokemonsList([response]);
         } catch (error) {
             console.log(error)
         }
@@ -81,7 +81,16 @@ export function PokedexApiProvider({ children }) {
     }, []);
 
     return (
-        <PokedexApiContext.Provider value={{ pokemonsList, nextPage, prevPage, handleSearchPokemons, handleChangePokemonName, handleGetPokemonsByPage, handleBuyPokemon }}>
+        <PokedexApiContext.Provider value={{ 
+            pokemonsList,
+            nextPage,
+            prevPage,
+            pokemonName,
+            handleSearchPokemons,
+            handleChangePokemonName,
+            handleGetPokemonsByPage,
+            handleBuyPokemon
+        }}>
             {children}
         </PokedexApiContext.Provider>
     )
