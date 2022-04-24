@@ -1,10 +1,10 @@
 import Wallet from "./Wallet";
 import { PokeCoinApiProvider } from '../../contexts/PokecoinApi/index';
 
-function WalletPage() {
+function WalletPage({ btcCurrency }) {
     return(
         <PokeCoinApiProvider>
-            <Wallet/>
+            <Wallet btcCurrency={btcCurrency}/>
         </PokeCoinApiProvider>
     );
 };

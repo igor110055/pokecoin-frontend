@@ -46,7 +46,7 @@ function App() {
       <PageView>
         <Routes>
           <Route path="/" element={<HomePage btcCurrency={btcCurrency}/>} />
-          <Route path="wallet" element={<WalletPage />} />
+          <Route path="wallet" element={<WalletPage btcCurrency={btcCurrency} />} />
           <Route path="transactions" element={<TransactionsPage />} />
         </Routes>
       </PageView>
