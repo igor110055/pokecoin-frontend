@@ -1,5 +1,5 @@
 import { useState, createContext, useEffect } from 'react';
-import { getPokemonsActives, getTransactions } from '../../services/pokecoin-api';
+import { getPokemonsActives, getTransactions, sellPokemon } from '../../services/pokecoin-api';
 
 export const PokeCoinApiContext = createContext({});
 
@@ -18,7 +18,7 @@ export function PokeCoinApiProvider({ children }) {
         } catch (error) {
             console.log(error)
         }
-    }
+    };
 
     const handleGetTransactionsHistory = async () => {
         try {
@@ -27,18 +27,34 @@ export function PokeCoinApiProvider({ children }) {
             setCurrentProfit(currentProfit.profit);
             setAllTransactions(transactions);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
-    }
+    };
+
+    const handleSellPokemons = async (pokemonId) =>  {
+        try {
+            await sellPokemon({ pokemonId });
+            await getAllMetrics();
+        } catch (error) {
+            console.log(error);
+            
+        }
+    };
+
+    const getAllMetrics = async () => {
+        await Promise.all([
+            handleGetPokemonsActives(),
+            handleGetTransactionsHistory(),
+        ]);
+    };
 
     useEffect(() => {
-        handleGetPokemonsActives();
-        handleGetTransactionsHistory();
+        getAllMetrics();
     }, []);
 
 
     return (
-        <PokeCoinApiContext.Provider value={{totalInvested, pokemonsActivestransactions, currentProfit, allTransactions}}>
+        <PokeCoinApiContext.Provider value={{totalInvested, pokemonsActivestransactions, currentProfit, allTransactions, handleSellPokemons}}>
             {children}
         </PokeCoinApiContext.Provider>
     )
