@@ -23,7 +23,7 @@ export const getPokemonsByName = async (payload) => {
         }
         return pokemonData
     } catch (error) {
-        console.log(error)
+        throw error;
     }
 };
 
@@ -36,7 +36,7 @@ export const getAllPokemons = async () => {
         return returnData;
 
     } catch (error) {
-        console.log(error)
+        throw error;
     }
 };
 
@@ -47,7 +47,7 @@ export const getPokemonsByPage = async (page) => {
         const returnData = { next: listResponse.next, prev: listResponse.previous, pokemonData }
         return returnData;
     } catch (error) {
-        console.log(error)
+        throw error;
     }
 };
 
@@ -64,9 +64,9 @@ const handleGetPokemonByUrl = async (pokemonList) => {
             }
             return data;
         }));
-        return pokemonData
+        return pokemonData;
     } catch (error) {
-        console.log(error)
+        throw error;
     }
 };
 

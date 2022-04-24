@@ -31,19 +31,24 @@ function Home({ btcCurrency }) {
             </ButtonRow>
 
             {
-                pokemonsList.map((pokemon) => (
-                    <PokemonCard pokemonType={pokemon.type} key={pokemon.id}>
-                        <PokemonInfoRow>
-                            <img alt='Pokemon img' src={pokemon.imgUrl} height={65} />
-                            <div>
-                                <p>{pokemon.name}</p>
-                                <p>Xp: {pokemon.baseExperience}</p>
-                            </div>
-                        </PokemonInfoRow>
-                        {`$ ${calculatePokemonUsdValue({btcCurrency, pokemonExperience: pokemon.baseExperience}).toFixed(6)}`}
-                        <BuyButton onClick={() => { handleBuyPokemon(pokemon) }}>Comprar</BuyButton>
-                    </PokemonCard>
-                ))
+                !pokemonsList.length > 0 ?
+                    <SearchRow>
+                        Nenhum pokemon encontrado
+                    </SearchRow>
+                    :
+                    pokemonsList.map((pokemon) => (
+                        <PokemonCard pokemonType={pokemon.type} key={pokemon.id}>
+                            <PokemonInfoRow>
+                                <img alt='Pokemon img' src={pokemon.imgUrl} height={65} />
+                                <div>
+                                    <p>{pokemon.name}</p>
+                                    <p>Xp: {pokemon.baseExperience}</p>
+                                </div>
+                            </PokemonInfoRow>
+                            {`$ ${calculatePokemonUsdValue({ btcCurrency, pokemonExperience: pokemon.baseExperience }).toFixed(6)}`}
+                            <BuyButton onClick={() => { handleBuyPokemon(pokemon) }}>Comprar</BuyButton>
+                        </PokemonCard>
+                    ))
             }
         </Container>
     )

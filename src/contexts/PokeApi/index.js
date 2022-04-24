@@ -31,10 +31,11 @@ export function PokedexApiProvider({ children }) {
     const handleGetPokemonByName = async () => {
         try {
             const response = await getPokemonsByName({ pokemonName });
-            setPokemonsList([response]);
+            console.log(response)
+            response ? setPokemonsList([response]) : setPokemonsList([]);
         } catch (error) {
-            console.log(error);
-            toast.error('Houve um problema para buscar o pokemon.');
+            setPokemonsList([])
+            toast.error('Pokemon não encontrado :/');
         }
     };
 
@@ -46,6 +47,7 @@ export function PokedexApiProvider({ children }) {
             setPokemonsList(response.pokemonData)
         } catch (error) {
             console.log(error)
+            toast.error('Houve um problema para buscar os pokemons.');
         }
     }
 
@@ -58,6 +60,7 @@ export function PokedexApiProvider({ children }) {
             setPokemonsList(response.pokemonData)
         } catch (error) {
             console.log(error);
+            toast.error('Houve um problema para buscar os pokemons.');
         }
     };
 
