@@ -1,18 +1,31 @@
 import { useState, createContext, useEffect } from 'react';
-import { getPokemonsActives } from '../../services/pokecoin-api';
+import { getPokemonsActives, getTransactions } from '../../services/pokecoin-api';
 
-const PokeCoinApiContext = createContext({});
+export const PokeCoinApiContext = createContext({});
 
 export function PokeCoinApiProvider({ children }) {
-    const [profit, setProfit] = useState('');
-    const [transactionsHistory, setTransactionsHistory] = useState([]);
+    const [totalInvested, setTotalInvested] = useState('');
+    const [pokemonsActivestransactions, setPokemonsActivestransactions] = useState([]);
+    const [currentProfit, setCurrentProfit] = useState('');
+    const [allTransactions, setAllTransactions] = useState([]);
 
     const handleGetPokemonsActives = async () => {
         try {
             const response = await getPokemonsActives();
             const { currentInvested, pokemons } = response.data;
-            setProfit(currentInvested.invested);
-            setTransactionsHistory(pokemons);
+            setTotalInvested(currentInvested.invested);
+            setPokemonsActivestransactions(pokemons);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const handleGetTransactionsHistory = async () => {
+        try {
+            const response = await getTransactions();
+            const { currentProfit, transactions } = response.data;
+            setCurrentProfit(currentProfit.profit);
+            setAllTransactions(transactions);
         } catch (error) {
             console.log(error)
         }
@@ -20,15 +33,12 @@ export function PokeCoinApiProvider({ children }) {
 
     useEffect(() => {
         handleGetPokemonsActives();
+        handleGetTransactionsHistory();
     }, []);
 
-    useEffect(() => {
-        console.log(profit)
-        console.log(transactionsHistory)
-    }, [profit, transactionsHistory]);
 
-    return(
-        <PokeCoinApiContext.Provider value={{profit, transactionsHistory}}>
+    return (
+        <PokeCoinApiContext.Provider value={{totalInvested, pokemonsActivestransactions, currentProfit, allTransactions}}>
             {children}
         </PokeCoinApiContext.Provider>
     )
