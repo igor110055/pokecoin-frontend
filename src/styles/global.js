@@ -3,6 +3,8 @@ import styled, { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
     :root {
         --poke-blue: #0075BE;
+        --poke-darkblue: #0A285F;
+        --type-DEFAULT:  #0A285F;
         --type-BUY: #4ABF0A;
         --type-SALE: #BF150A;
         --type-normal: #C2C2A1;
@@ -46,4 +48,11 @@ export const Container = styled.main`
     height: calc(100vh - 80px);
     padding: 30px 100px;
     overflow-y: auto;
+`
+export const Row = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: white;
 `
