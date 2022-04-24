@@ -1,10 +1,10 @@
 import Home from "./Home";
 import { PokedexApiProvider } from '../../contexts/PokeApi/index';
 
-function HomePage() {
+function HomePage({ btcCurrency }) {
     return(
         <PokedexApiProvider>
-            <Home/>
+            <Home btcCurrency={btcCurrency} />
         </PokedexApiProvider>
     )
 }

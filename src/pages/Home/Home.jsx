@@ -1,10 +1,11 @@
 import { useContext } from 'react';
 import PokemonCard from '../../components/PokemonCard';
 import { Container, Row } from '../../styles/global';
-import { ButtonRow, ButtonPage, BuyButton, InputText, SearchPokemon, SearchRow } from './styles';
+import { ButtonRow, ButtonPage, BuyButton, InputText, SearchPokemon, SearchRow, PokemonInfoRow } from './styles';
 import { PokedexApiContext } from '../../contexts/PokeApi/index';
+import { calculatePokemonUsdValue } from '../../utils/btcutils';
 
-function Home() {
+function Home({ btcCurrency }) {
     const {
         pokemonsList,
         nextPage,
@@ -32,14 +33,14 @@ function Home() {
             {
                 pokemonsList.map((pokemon) => (
                     <PokemonCard pokemonType={pokemon.type} key={pokemon.id}>
-                        <Row>
+                        <PokemonInfoRow>
                             <img alt='Pokemon img' src={pokemon.imgUrl} height={65} />
                             <div>
                                 <p>{pokemon.name}</p>
                                 <p>Xp: {pokemon.baseExperience}</p>
                             </div>
-                        </Row>
-                        preco
+                        </PokemonInfoRow>
+                        {`$ ${calculatePokemonUsdValue({btcCurrency, pokemonExperience: pokemon.baseExperience}).toFixed(6)}`}
                         <BuyButton onClick={() => { handleBuyPokemon(pokemon) }}>Comprar</BuyButton>
                     </PokemonCard>
                 ))

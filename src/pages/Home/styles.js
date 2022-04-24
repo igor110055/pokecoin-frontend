@@ -71,3 +71,12 @@ export const SearchPokemon = styled.button`
     border-radius: 12px;
     margin: 0 5px;
 `
+
+export const PokemonInfoRow = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: white;
+    width: 250px;
+`
