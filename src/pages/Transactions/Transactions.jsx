@@ -29,7 +29,7 @@ function Transactions() {
                         <TransactionRow>
                             <InfoText>Data {getDateFormatted(transaction.transactionDate)} {getTimeFormatted(transaction.transactionDate)}</InfoText>
                             <InfoText>Cotação ${transaction.btcCurrency}</InfoText>
-                            <InfoText>Valor de {transaction.transactionType === 'SALE' ? 'Venda' : 'Compra'} ${transaction.pokemonUsdValue.toFixed(4)}</InfoText>
+                            <InfoText>Valor de {transaction.transactionType === 'SALE' ? 'Venda' : 'Compra'} ${transaction.pokemonUsdValue.toFixed(6)}</InfoText>
                         </TransactionRow>
                     </PokemonCard>
                 ))

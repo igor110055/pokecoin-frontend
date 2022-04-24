@@ -12,8 +12,8 @@ function Wallet() {
         <Container>
             <WalletInfo>
                 <WalletRow>
-                    <WalletText>Lucro em vendas: $ {parseFloat(currentProfit).toFixed(5)}</WalletText>
-                    <WalletText>Valor em ativos: $ {parseFloat(totalInvested).toFixed(5)}</WalletText>
+                    <WalletText>Lucro em vendas: $ {parseFloat(currentProfit).toFixed(6)}</WalletText>
+                    <WalletText>Valor em ativos: $ {parseFloat(totalInvested).toFixed(6)}</WalletText>
                 </WalletRow>
             </WalletInfo>
             <div>
@@ -28,8 +28,8 @@ function Wallet() {
                                 </div>
                             </Row>
                             <SellRow>
-                                <p>Compra: $ {pokemon.pokemonUsdValue.toFixed(5)}</p>
-                                <p>Venda: $ {pokemon.pokemonUsdValue.toFixed(5)}</p>
+                                <p>Compra: $ {pokemon.pokemonUsdValue.toFixed(6)}</p>
+                                <p>Venda: $ {pokemon.pokemonUsdValue.toFixed(6)}</p>
                                 <SellButton onClick={() => handleSellPokemons(pokemon.pokemonId._id)}>Vender</SellButton>
                             </SellRow>
                         </PokemonCard>
