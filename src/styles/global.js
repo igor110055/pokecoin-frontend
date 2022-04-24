@@ -3,6 +3,8 @@ import styled, { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
     :root {
         --poke-blue: #0075BE;
+        --type-BUY: #4ABF0A;
+        --type-SALE: #BF150A;
         --type-normal: #C2C2A1;
         --type-flying: #BAB0D5; 
         --type-ghost: #735797; 
