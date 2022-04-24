@@ -1,6 +1,7 @@
 import { useState, createContext, useEffect } from 'react';
 import { getPokemonsByName, getAllPokemons, getPokemonsByPage } from '../../services/pokedex-api';
 import { buyPokemon } from '../../services/pokecoin-api';
+import { toast } from 'react-toastify';
 
 export const PokedexApiContext = createContext({});
 
@@ -22,18 +23,20 @@ export function PokedexApiProvider({ children }) {
             }
             await handleGetAllPokemons();
         } catch (error) {
-            console.log(error)
+            console.log(error);
+            toast.error('Houve um problema para buscar o pokemon.');
         }
-    }
+    };
 
     const handleGetPokemonByName = async () => {
         try {
             const response = await getPokemonsByName({ pokemonName });
             setPokemonsList([response]);
         } catch (error) {
-            console.log(error)
+            console.log(error);
+            toast.error('Houve um problema para buscar o pokemon.');
         }
-    }
+    };
 
     const handleGetAllPokemons = async () => {
         try {
@@ -68,13 +71,13 @@ export function PokedexApiProvider({ children }) {
                 pokemonSpriteUrl: pokemon.imgUrl,
                 pokemonType: pokemon.type
             }
-            const res = await buyPokemon(body);
-            console.log(res)
+            await buyPokemon(body);
+            toast.success('Pokemon adquirido com sucesso!');
         } catch (error) {
-            console.log(error)
+            console.log(error);
+            toast.error('Houve um erro ao vender o pokemon :/');
         }
-        
-    }
+    };
 
     useEffect(() => {
         handleGetAllPokemons();

@@ -1,5 +1,6 @@
 import { useState, createContext, useEffect } from 'react';
 import { getPokemonsActives, getTransactions, sellPokemon } from '../../services/pokecoin-api';
+import { toast } from 'react-toastify';
 
 export const PokeCoinApiContext = createContext({});
 
@@ -17,6 +18,7 @@ export function PokeCoinApiProvider({ children }) {
             setPokemonsActivestransactions(pokemons);
         } catch (error) {
             console.log(error)
+            toast.error('Houve um problema ao recuperar os pokemons ativos :/');
         }
     };
 
@@ -28,16 +30,18 @@ export function PokeCoinApiProvider({ children }) {
             setAllTransactions(transactions);
         } catch (error) {
             console.log(error);
+            toast.error('Houve um problema ao recuperar o histórico :/');
         }
     };
 
     const handleSellPokemons = async (pokemonId) =>  {
         try {
             await sellPokemon({ pokemonId });
+            toast.success('Pokemon vendido com sucesso!');
             await getAllMetrics();
         } catch (error) {
             console.log(error);
-            
+            toast.error('Houve um problema na venda :/');
         }
     };
 
