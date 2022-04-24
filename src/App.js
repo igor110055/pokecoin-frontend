@@ -1,8 +1,8 @@
 import { Routes, Route, Link } from "react-router-dom";
 import { PageView } from './styles/global';
-import HomePage from './pages/Home/index';
-import Wallet from './pages/Wallet';
-import Transactions from './pages/Transactions';
+import HomePage from './pages/Home';
+import WalletPage from './pages/Wallet';
+import TransactionsPage from './pages/Transactions';
 import LeftNavBar from './components/LeftNavBar';
 import TopNavBar from "./components/TopNavBar";
 import PokeCoinLogo from './assets/images/PokeCoin.png';
@@ -21,8 +21,8 @@ function App() {
       <PageView>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="wallet" element={<Wallet />} />
-          <Route path="transactions" element={<Transactions />} />
+          <Route path="wallet" element={<WalletPage />} />
+          <Route path="transactions" element={<TransactionsPage />} />
         </Routes>
       </PageView>
     </div>
