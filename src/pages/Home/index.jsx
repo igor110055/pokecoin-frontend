@@ -1,11 +1,11 @@
 import Home from "./Home";
-import { PokeCoinApiProvider } from '../../contexts/PokecoinApi/index';
+import { PokedexApiProvider } from '../../contexts/PokeApi/index';
 
 function HomePage() {
     return(
-        <PokeCoinApiProvider>
+        <PokedexApiProvider>
             <Home/>
-        </PokeCoinApiProvider>
+        </PokedexApiProvider>
     )
 }
 
