@@ -6,7 +6,7 @@ export const ButtonRow = styled.div`
     align-items: center;
     justify-content: center;
 `
-export const ButtonNav = styled.button`
+export const ButtonPage = styled.button`
     display: flex;
     height: 40px;
     width: 150px;
@@ -16,4 +16,18 @@ export const ButtonNav = styled.button`
     background: var(--poke-blue);
     color: white;
     border-radius: 12px;
+    margin: 0 5px;
+`
+
+export const BuyButton = styled.button`
+    display: flex;
+    height: 40px;
+    width: 150px;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: var(--type-BUY);
+    color: white;
+    border-radius: 12px;
+    margin: 0 5px;
 `

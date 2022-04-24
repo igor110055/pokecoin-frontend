@@ -12,8 +12,8 @@ function Wallet() {
         <Container>
             <WalletInfo>
                 <WalletRow>
-                    <WalletText>Lucro em vendas: $ {currentProfit}</WalletText>
-                    <WalletText>Valor em ativos: $ {totalInvested}</WalletText>
+                    <WalletText>Lucro em vendas: $ {parseFloat(currentProfit).toFixed(5)}</WalletText>
+                    <WalletText>Valor em ativos: $ {parseFloat(totalInvested).toFixed(5)}</WalletText>
                 </WalletRow>
             </WalletInfo>
             <div>
@@ -21,15 +21,15 @@ function Wallet() {
                     pokemonsActivestransactions.map((pokemon) => (
                         <PokemonCard key={pokemon._id} pokemonType='DEFAULT'>
                             <Row>
-                                <img alt='Pokemon img' src={pokemon.pokemonId.pokemonSpriteUrl} />
+                                <img alt='Pokemon img' src={pokemon.pokemonId.pokemonSpriteUrl} height={65}/>
                                 <div>
                                     <p>{pokemon.pokemonId.pokemonName}</p>
                                     <p>Xp: {pokemon.pokemonId.pokemonExperience}</p>
                                 </div>
                             </Row>
                             <SellRow>
-                                <p>Compra: $ {pokemon.pokemonUsdValue}</p>
-                                <p>Venda: $ {pokemon.pokemonUsdValue}</p>
+                                <p>Compra: $ {pokemon.pokemonUsdValue.toFixed(5)}</p>
+                                <p>Venda: $ {pokemon.pokemonUsdValue.toFixed(5)}</p>
                                 <SellButton onClick={() => handleSellPokemons(pokemon.pokemonId._id)}>Vender</SellButton>
                             </SellRow>
                         </PokemonCard>
