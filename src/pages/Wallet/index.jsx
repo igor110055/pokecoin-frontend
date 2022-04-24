@@ -1,13 +1,12 @@
-import { Container } from '../../styles/global';
+import Wallet from "./Wallet";
+import { PokeCoinApiProvider } from '../../contexts/PokecoinApi/index';
 
-function Wallet() {
-    return (
-        <Container>
-            <h1>
-                Wallet page
-            </h1>
-        </Container>
+function WalletPage() {
+    return(
+        <PokeCoinApiProvider>
+            <Wallet/>
+        </PokeCoinApiProvider>
     );
 };
 
-export default Wallet;
+export default WalletPage;
