@@ -1,8 +1,12 @@
+import { Container } from '../../styles/global';
+
 function Wallet() {
     return (
-        <h1>
-            Wallet page
-        </h1>
+        <Container>
+            <h1>
+                Wallet page
+            </h1>
+        </Container>
     );
 };
 

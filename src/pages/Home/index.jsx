@@ -1,8 +1,19 @@
+import PokemonCard from "../../components/PokemonCard";
+import { Container } from '../../styles/global';
+import { ButtonRow, ButtonNav } from './styles';
 function Home() {
-    return(
-        <h1>
-            Home page
-        </h1>
+    return (
+        <Container>
+            <ButtonRow>
+                <ButtonNav>Next Page</ButtonNav>
+                <ButtonNav>Prev Page</ButtonNav>
+            </ButtonRow>
+            <PokemonCard pokemonType='normal'>
+                nome
+                preco
+                comprar
+            </PokemonCard>
+        </Container>
     )
 };
 

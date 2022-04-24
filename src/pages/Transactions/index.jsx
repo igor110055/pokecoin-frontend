@@ -1,8 +1,12 @@
+import { Container } from '../../styles/global';
+
 function Transactions() {
     return (
-        <h1>
-            Transactions page
-        </h1>
+        <Container>
+            <h1>
+                Transactions page
+            </h1>
+        </Container>
     )
 };
 
