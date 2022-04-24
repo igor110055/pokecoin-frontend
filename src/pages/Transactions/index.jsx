@@ -1,13 +1,12 @@
-import { Container } from '../../styles/global';
+import Transactions from './Transactions';
+import { PokeCoinApiProvider } from '../../contexts/PokecoinApi/index';
 
-function Transactions() {
-    return (
-        <Container>
-            <h1>
-                Transactions page
-            </h1>
-        </Container>
-    )
+function TransactionsPage() {
+    return(
+        <PokeCoinApiProvider>
+            <Transactions/>
+        </PokeCoinApiProvider>
+    );
 };
 
-export default Transactions;
+export default TransactionsPage;
