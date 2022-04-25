@@ -30,7 +30,7 @@ function App() {
   return (
     <div>
       <TopNavBar currentPage={location.pathname} btcCurrency={btcCurrency}>
-        <img src={PokeCoinLogo} />
+        <img alt='PokeCoin Logo' src={PokeCoinLogo} />
       </TopNavBar>
       <LeftNavBar>
         <LinkDiv pageActive={location.pathname === '/'}>
