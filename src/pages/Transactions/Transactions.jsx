@@ -26,7 +26,7 @@ function Transactions() {
                 !allTransactions.length > 0 ?
                     <p style={{ textAlign: 'center' }}>Não há histórico de transações</p> :
                     allTransactions.map((transaction) => (
-                        <PokemonCard key={transaction.id} pokemonType={transaction.transactionType}>
+                        <PokemonCard key={transaction._id} pokemonType={transaction.transactionType}>
                             <Row>
                                 <img alt='Pokemon img' src={transaction.pokemonId.pokemonSpriteUrl} height={65} />
                                 <div>
