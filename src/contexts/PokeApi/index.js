@@ -31,7 +31,6 @@ export function PokedexApiProvider({ children }) {
     const handleGetPokemonByName = async () => {
         try {
             const response = await getPokemonsByName({ pokemonName });
-            console.log(response)
             response ? setPokemonsList([response]) : setPokemonsList([]);
         } catch (error) {
             setPokemonsList([])
@@ -54,7 +53,6 @@ export function PokedexApiProvider({ children }) {
     const handleGetPokemonsByPage = async (page) => {
         try {
             const response = await getPokemonsByPage(page);
-            console.log('rres', response)
             setNextPage(response.next)
             setPrevPage(response.prev)
             setPokemonsList(response.pokemonData)
@@ -65,7 +63,6 @@ export function PokedexApiProvider({ children }) {
     };
 
     const handleBuyPokemon = async (pokemon) => {
-        console.log(pokemon)
         try {
             const body = {
                 pokemonId: pokemon.id,

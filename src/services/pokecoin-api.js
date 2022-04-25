@@ -13,7 +13,6 @@ export const buyPokemon = async (payload) => {
 export const getPokemonsActives = async () => {
     try {
         const response = await pokecoinApi.get('/pokemon/all/actives');
-        console.log(response.data)
         return response.data;
     } catch (error) {
         throw error;
