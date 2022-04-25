@@ -28,7 +28,7 @@ export const SellRow = styled.div`
     justify-content: space-between;
 `
 export const WalletRow = styled.div`
-    width: 50%;
+    width: 70%;
     height: 90px;
     color: white;
     display: flex;

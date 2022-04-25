@@ -3,6 +3,7 @@ import PokemonCard from '../../components/PokemonCard';
 import { PokeCoinApiContext } from '../../contexts/PokecoinApi';
 import { Container, Row } from '../../styles/global';
 import { InfoText, TransactionRow } from './styles';
+import { Icon } from '@iconify/react';
 
 const getTimeFormatted = (date) => {
     return new Date(date).toLocaleTimeString('pt-BR')
@@ -13,10 +14,15 @@ const getDateFormatted = (date) => {
 }
 
 function Transactions() {
-    const { allTransactions } = useContext(PokeCoinApiContext);
+    const { allTransactions, apiLoading } = useContext(PokeCoinApiContext);
     return (
         <Container>
-            {
+            {apiLoading ?
+            <div style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
+                <Icon height={40} icon='eos-icons:loading'/>
+            </div>
+                
+                :
                 !allTransactions.length > 0 ?
                     <p style={{ textAlign: 'center' }}>Não há histórico de transações</p> :
                     allTransactions.map((transaction) => (

@@ -12,13 +12,18 @@ function Wallet({ btcCurrency }) {
         return buy < sell
     }
 
-    const { pokemonsActivestransactions, currentProfit, totalInvested, handleSellPokemons } = useContext(PokeCoinApiContext);
+    const { pokemonsActivestransactions, currentProfit, totalInvested, handleSellPokemons, apiLoading } = useContext(PokeCoinApiContext);
     return (
         <Container>
             <WalletInfo>
                 <WalletRow>
-                    <WalletText>Lucro em vendas: $ {parseFloat(currentProfit).toFixed(6)}</WalletText>
-                    <WalletText>Valor em ativos: $ {parseFloat(totalInvested).toFixed(6)}</WalletText>
+                    {apiLoading ?
+                        <Icon icon='eos-icons:loading'/> :
+                        <>
+                            <WalletText>Lucro em vendas: $ {parseFloat(currentProfit).toFixed(6)}</WalletText>
+                            <WalletText>Valor em ativos: $ {parseFloat(totalInvested).toFixed(6)}</WalletText>
+                        </>
+                    }
                 </WalletRow>
             </WalletInfo>
             <div>
