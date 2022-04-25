@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+## PokeCoin - FrontEnd  
+Um pesquisador descobriu uma correlação monetária inesperada com relação a estes
+monstros virtuais. Com a alta do interesse por estes, após a criação do Pokémon Go, e o crescimento
+do uso de criptomoedas, blockchain e NFTs, este fato ficou cada vez mais evidente. A teoria é que a
+base de experiência (“base_experience”) de um Pokémon possui uma relação direta com sua cotação
+em Bitcoin (BTC). De forma que um ponto de experiência equivale a um satoshi (0.00000001 BTC).  
+**Esta teoria é uma construção lúdica para o contexto do exercício e sem aplicação direta esperada no mundo real.**  
+Esse respositório contém o código fonte do frontend do PokeCoin, que foi feito em **React**.  
+O PokeCoin permite que o usuário realize compras e vendas de pokemons, além de acompanhar a valorização de sua carteira e o histórico de transações.  
+O backend dessa aplicação pode ser encontrado [aqui](https://github.com/nicaloribeiro/pokecoin-backend).  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- - - 
+### Requisitos para rodar o sistema
+- Gerenciador de pacotes 
+~~~
+yarn ou npm
+~~~
+- Arquivo de variáveis de ambiente  
+É necessário um arquivo com as variaveis de ambiente. Nesse projeto foram utilizadas duas: 
+~~~
+REACT_APP_API_URL  => Url de acesso ao backend (default http://localhost:5000/api)
+REACT_APP_COINBASE_API => Url da api que fornece a cotação de bitcoin em dólar (default https://api.coinbase.com/v2/prices/spot?currency=USD)
+~~~
+- - -
 
-## Available Scripts
+### Inicialização
+- Realize a instalação dos pacotes  
 
-In the project directory, you can run:
+~~~  
+yarn install ou npm install  
+~~~  
 
-### `yarn start`
+- Inicie o projeto  
+~~~
+yarn start ou npm start  
+~~~
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- O projeto deve abrir automaticamente no navegador. Por padrão o aplicativo deve estar rodando na seguinte rota:  
+~~~
+http://localhost:5000
+~~~
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### O projeto pode ser acessado aqui : https://salty-shore-31797.herokuapp.com/
